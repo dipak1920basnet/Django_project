@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let counter = 0
+        function count()
+        {
+            
+            counter ++
+            // alert(`Hello ${counter}`)
+            document.querySelector('.count').innerHTML = counter
+        }
+
+        document.addEventListener('DOMContentLoaded',
+        function greet(){
+            man = document.querySelector('.greet')
+            man_name = document.querySelector('#name').value
+            if (man.innerHTML == "Hello" || man.innerHTML == `Hello ${man_name}`)
+        {
+            man.innerHTML = `Bye ${man_name}`
+        }
+        else{
+            man.innerHTML = `Hello ${man_name}`
+        }
+        }
+        )
+        document.querySelector("#name-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevents page reload
+        });
+    </script>
+</head>
+<body>
+    <div class="count">
+        0
+    </div>
+    <div class="greet">
+        Hello
+    </div>
+    <form action="" id="name">
+        <input type="text" name="" id="">
+        <input type="submit" name="" id="">
+    </form>
+
+    <button onclick="count()"> Count </button>
+    <button onclick="greet()"> Greet </button>
+</body>
+</html>

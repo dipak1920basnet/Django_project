@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Page</title>
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'singlepage/style.css' %}">
+    <script src="{% static 'singlepage/script.js' %}"></script>
+    
+
+</head>
+<body>
+    <h1>Hello!</h1>
+    <button data-section="1"> Section 1 </button>
+    <button data-section="2"> Section 2 </button>
+    <button data-section="3"> Section 3 </button>
+
+    <div id="content">
+    </div>
+</body>
+</html>

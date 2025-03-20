@@ -1,0 +1,32 @@
+{% extends "network/layout.html" %}
+{% load static %}
+{% block body %}
+    {% if user.is_authenticated %}
+        {% if request.user.id != id %}
+            <button id="Follow", data-id="{{id}}"></button>
+            {{page_obj.user}}
+        {% endif %}
+    {% endif %}
+    <div class="following">
+        {% for profile in following_list %}
+            {{profile.following}}
+        {% endfor %}
+    </div>
+    <br>
+    <div class="follower">
+        {% for profile in follower_list %}
+            {{profile.follower}}
+        {% endfor %}
+    </div>
+
+
+    {% include "network/posts.html" %}
+    {% include "network/pagination.html" %}
+    {{id}}
+    {{message}}
+
+    <script src="{% static 'network/profile_script.js' %}"></script>
+{% endblock %}
+
+
+

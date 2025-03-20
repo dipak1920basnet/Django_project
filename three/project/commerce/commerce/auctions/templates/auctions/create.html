@@ -1,0 +1,46 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+    <h1> Create Listing: </h1>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+    <form action="{% url 'create_listing' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input id ="title" class="form-control" autofocus type="text" name="title" placeholder="Title:">
+        </div>
+        <div class="form-group">
+            <label for="description"> Description: </label>
+            <textarea id="description" class="form-control" type="textarea" name="description" placeholder="Enter description">
+            </textarea>
+
+        </div>
+        <div class="form-group">
+            <label for="url">Image URL for Listing (Optional): </label>
+            <input  id = "url" class="form-control" type="url" name="url" placeholder="https://www.bing.com/search?/image">
+        </div>
+        <div class="form-group">
+            <div class="category">
+                <label for="Category">Category (Company Name): </label>
+            <!-- <input id="Category" class="form-control" type="text" name="Category" placeholder="Category"> -->
+                <select name="Category" id="category">
+                    {% for category in Category %}
+                    <option value="{{category.category_field}}">{{category.category_field}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <!-- <div class="form-group">
+                <label for="url">Image URL for Category (Optional): </label>
+                <input  id = "url" class="form-control" type="url" name="url" placeholder="https://www.bing.com/search?/image">
+            </div> -->
+        </div>
+        <label for="bid">Minimum-bid: (Optional): </label>
+        <br>
+        <input id="bid" type="number" name="min_bid" placeholder="10" min="10" value="10">
+        <input type="submit" name="" id="">
+    </form>
+{% endblock %}

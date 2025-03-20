@@ -1,0 +1,83 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+    {% if messages %}
+        {% for message in messages%}
+            {{message}}
+        {% endfor %}
+    {% else %}
+            {% if find %}
+                <p>"You have won this listing"</p>
+            {% endif %}
+    {% endif %}
+    {% if close%}
+        <form action="{% url 'close_listing' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="close_item" id="" value="{{item_detail.id}}">
+            <input type="submit" name="" id="" value="Close Listing">
+
+        </form>
+    {% endif %}
+    <div class="container">
+        <div class="images">
+            {% if item_detail.image_url %}
+                    <img src="{{item_detail.image_url}}" alt="Image">
+                {% else %}
+                    <h1> Image not available </h1>
+                {% endif %}
+                <h1>{{item_detail.title}}</h1>
+        </div>
+        <div class="detail">
+            <ul>
+                <li>Description: {{item_detail.description}}</li>
+                <li>Category: {{item_detail.category}}</li>
+                <li>Starting bid: {{item_detail.starting_bid}}</li>
+                <li>Leading bid: {{bids}}</li>
+                 <!-- <li><a href="{% url 'categories'%}"><button>Get back to Category List:</button> </a></li> -->
+            </ul>
+        </div>
+
+{% if not find %}
+        <div class="watch_list">
+            <form action="watch_list", method="post">
+                {% csrf_token %}
+                <p>Hello World</p>
+                <input type="hidden" name="watch_list_id" id="" value="{{ item_detail.id }}">
+                <input type="submit" name="watch" id="" value="{{watching}}">
+            </form>
+        </div>
+{% endif %}  
+
+        <div class="comments">
+            <!-- View inputted comment here -->
+             <h2>Comments: </h2>
+             {% for comment in Comments %}
+                <ul>
+                    <li>{{ comment }}</li>
+                </ul>
+             {% endfor %}
+        </div>
+    </div>
+
+{% if not find %}
+    <div class="bid">
+        <form action="{% url 'bid' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="auction_list_id" id="" value="{{item_detail.id}}">
+            <!-- <input type="hidden" name="starting_bid" id="" value="{{item_detail.starting_bid}}"> -->
+            <input type="number" name="current_bid" id="">
+            <input type="submit" name="" id="">
+        </form>
+    </div>
+<!-- Add comment here -->
+    <div class="comment">
+        <form action="{% url 'make_comment' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="auction_list_id" id="", value="{{item_detail.id}}">
+            <input type="text" name="comment" id="" placeholder="Add your comment here!">
+            <input type="submit" name="" id="">
+        </form>
+    </div>
+
+{% endif %}   
+
+{% endblock %}

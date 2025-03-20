@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> TO-DO List </h1>
+    <input type="text" name="" id="taskInput" placeholder="New task...">
+    <button onclick="addTask()">Add Task</button>
+    <ul id="tasklist"></ul>
+
+    <script>
+        function loadTasks()
+        {
+            fetch("/api/tasks")
+            .then(data => {
+                let tasklist = document.getElementById("tasklist");
+                tasklist.innerHTML = "";
+                data.tasks.forEach(task => {
+                    let li = document.createElement("li");
+                    li.className = "task";
+                    li.innerHTML = `${task.title} <button onlick="deleteTask(${task.id})">X</>`;
+                    tasklist.appendChild(li);
+                });
+            });
+        }
+
+        // Add a new task 
+        function addTask()
+        {
+            let input = document.getElementById("taskInput");
+            let taskTitle = input.value.trim();
+            if (!taskTitle) return alert("Task cannot be empty!");
+            fetch("/api/add_task",
+                {
+                    method:"POST",
+                    headers:{"Content-Type":"application/json"},
+                    body:JSON.stringify({title:taskTitle})
+                }
+            )
+            .then(response => response.json())
+            .then(task => 
+                {
+                    let li = document.createElement("li");
+                    li.className = "task";
+                    li.innerHTML = `${task.title} <button onclick="deleteTask(${task.id})">X</button>`;
+                    document.getElementById("tasklist").appendChild(li);
+                    input.value = "";
+                }
+            );
+        }
+
+        // Delete a task
+        function deleteTask(taskId){
+            fetch(`/api/delete_task/${taskId}`)
+            .then(()=>loadTasks());
+        }
+
+        // Load tasks on page load
+        window.onload = loadTasks;
+    </script>
+
+</body>
+</html>

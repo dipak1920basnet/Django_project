@@ -1,0 +1,35 @@
+{% extends "auctions/layout.html" %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+{% block body %}
+    <h2>WatchList: </h2>
+        {% if user.is_authenticated %}
+            <ul>
+               {% for active in active_list %}
+                {% if active.is_active %}
+                <li>
+                    <div class="container">
+                        {% if active.image_url %}
+                            <img src="{{active.image_url}}" alt="Image">
+                        {% else %}
+                            <h1> Image not available </h1>
+                        {% endif %}
+                        <h1>{{active.title}}</h1>
+                        <ul>
+                            <li>Description: {{active.description}}</li>
+                            <li>Category: {{active.category}}</li>
+                            <li>Starting bid: {{active.starting_bid}}</li>
+                             <li><a href="{% url 'item_detail' active.id %}"><button>View Details</button> </a></li>
+                        </ul>
+                    
+                    </div>
+                   </li>
+                {% else %}
+
+                {% endif %}
+               {% endfor %}
+            </ul>
+        {% else %}
+            <p>Please Get loged In to get started</p>
+            <p>If you don't have account Register First</p>
+        {% endif %}
+{% endblock %}

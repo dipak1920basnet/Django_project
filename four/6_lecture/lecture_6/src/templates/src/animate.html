@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate</title>
+    <style>
+        @keyframes grow {
+            0% {
+                left: 0%;
+                font-size: 20px;
+            }
+            20% {
+                left: 40%;
+                font-weight: 600;
+                /* font-family: 'Courier New', Courier, monospace; */
+                color: blue;
+                font-size: 60px;
+            }
+            50%{
+                left: 60%;
+                font-size: 100px;
+                color: Red;
+            }
+            70%{
+                left: 80%;
+                font-size:60px;
+                color: green;
+            }
+            100%
+            {
+                left: 0%;
+                font-size: 30px;
+                color: black;
+
+            }
+        }
+        h1{
+            position: relative;
+            animation-name: grow;
+            animation-duration: 12s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function()
+    {
+       const h1 = document.querySelector('h1');
+        h1.style.animationPlayState = 'paused';
+
+        document.querySelector('button').onclick = () => 
+    {
+        if (h1.style.animationPlayState == "paused")
+    {
+        h1.style.animationPlayState = "running";
+    }
+    else
+    {
+        h1.style.animationPlayState = "paused";
+    }
+    }
+    })
+    </script>
+</head>
+<body>
+    <button>Click here for animation!</button>
+    <h1>Welcome!</h1>
+</body>
+</html>

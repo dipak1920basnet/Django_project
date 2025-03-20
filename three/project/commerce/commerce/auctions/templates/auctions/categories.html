@@ -1,0 +1,14 @@
+{% extends "auctions/layout.html" %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+{% block body %}
+    {% if user.is_authenticated %}
+        <h1>Category List: </h1>
+        {% for category in Category_List %}
+            <ul>
+                <li><a href="{% url 'view_item_categories' category.category_field %}">{{category.category_field}}</a></li>
+            </ul>
+        {% endfor %}
+    {% else %}
+            Not loged in
+    {% endif %}
+{% endblock %}

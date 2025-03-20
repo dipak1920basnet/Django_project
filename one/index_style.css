@@ -1,0 +1,127 @@
+body
+{
+    color: white;
+    background-color: #28292a;
+}
+a{
+    color: white;
+}
+.upper 
+{
+    /* background-color: black; */
+    color: white;
+    display: flex;
+    align-items:center;
+    justify-content: end;
+    height: 5vh;
+    /* margin-top: 2%; */
+    padding-right: 2%;
+}
+.links
+{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+}
+.actual_search
+{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #28292a; */
+}
+
+.images img
+{
+    height: 91.9886px;
+    /* margin: 10%; */
+}
+.main
+{
+    padding: 20px;
+}
+.query
+{
+    background-color: rgb(77, 81, 86);
+    width: 584px;
+    max-width: 584px;
+    min-height: 44px;
+    border-radius: 24px;
+    padding-left: 27px;
+}
+.new_div
+{
+    padding-top: 18px;
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35.9943px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.click_submit
+{
+    border-radius: 4px;
+    height: 35.9943px;
+    background-color: rgb(48, 49, 52);
+    border-color: rgb(48, 49,52);
+    color: white;
+    margin-bottom: 11px;
+    margin-top: 11px;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.lower
+{
+    background-color: black;
+    color: white;
+    /* margin-top: 2%; */
+}
+.upper_lower
+{
+    display: flex;
+    align-items: center;
+    padding-left: 2%;
+    height: 5vh;
+}
+.upper_lower p
+{
+    margin-left: 2%;
+}
+hr
+{
+    height: 2px;
+    border-top: 1px solid grey;
+}
+.lower_content
+{
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    height: 5vh;
+    width: 100%;
+}
+.info, .container
+{
+    width: 50%;
+}
+.info ul
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.condition ul
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20%;
+}

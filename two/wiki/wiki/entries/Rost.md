@@ -1,0 +1,1 @@
+Ooi kaka k xa tero khabar. Mero tah thik xa yar

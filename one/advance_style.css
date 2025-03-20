@@ -1,0 +1,74 @@
+body
+{
+    color: white;
+    background-color: #28292a;
+}
+a{
+    color: white;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+    font-size: 12px;
+}
+.upper_content
+{
+    padding: 8px;
+}
+.upper 
+{
+    color: white;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    height: 5vh;
+    padding-right: 2%;
+}
+.upper_lower_left
+{
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    
+}
+
+.lower_top
+{
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(242, 139, 130);
+    margin-left: 10px;
+}
+hr
+{
+    height: 2px;
+    border-top: 0.1px solid black;
+}
+
+
+/* .links
+{
+    /* display: flex; */
+    /* justify-content: space-around; 
+    
+} */
+.one, .two, .three, .four, .five
+{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    /* justify-content: space-between; */
+    min-height: 41px;
+    min-width: 167px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    gap: 4%;
+}
